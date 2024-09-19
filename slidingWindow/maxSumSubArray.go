@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+/*
 func maxSum(Arr []int, K int) int {
 	windowSum := 0
 	maximumSum := 0
@@ -14,6 +15,29 @@ func maxSum(Arr []int, K int) int {
 				maximumSum = windowSum
 			}
 			windowSum -= Arr[i-(K-1)]
+		}
+	}
+	return maximumSum
+}
+*/
+
+//BruteForce method..
+
+func maxSum(Arr []int, K int) int {
+
+	windowSum := 0
+	maximumSum := 0
+
+	for i := 0; i <= len(Arr)-K; i++ {
+
+		for j := i; j < i+K; j++ {
+
+			windowSum += Arr[j]
+
+		}
+		if maximumSum < windowSum {
+			maximumSum = windowSum
+			windowSum = 0
 		}
 	}
 	return maximumSum
